@@ -129,7 +129,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = BLUEBOOK)) +
                color = "darkblue") +
   ggtitle("Densidade: Preço Tabelado do Automovel") +
   xlab("Preco (USD)") + ylab("densidade") +
-  theme(plot.title = element_text(size=15) )
+  theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
 
@@ -202,7 +202,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = RETAINED)) +
                color = "darkblue") +
   ggtitle("Densidade: Anos como cliente") +
   xlab("Anos") + ylab("densidade") +
-  theme(plot.title = element_text(size=15) )
+  theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
 
@@ -271,7 +271,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = CLM_AMT)) +
                color = "darkblue") +
   ggtitle("Densidade: Valor de cobertura solicitado") +
   xlab("Valor(USD)") + ylab("densidade") +
-  theme(plot.title = element_text(size=15) )
+  theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
 
@@ -342,7 +342,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = AGE)) +
                color = "darkblue") +
   ggtitle("Densidade: Idade em anos") +
   xlab("Anos") + ylab("densidade") +
-  theme(plot.title = element_text(size=15) )
+  theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
 
@@ -411,7 +411,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = YOJ)) +
                color = "darkblue") +
   ggtitle("Densidade: Anos de trabalho") +
   xlab("Anos") + ylab("densidade") +
-  theme(plot.title = element_text(size=15) )
+  theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
 
@@ -480,7 +480,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = NPOLICY)) +
                color = "darkblue") +
   ggtitle("Densidade: Número de apólices") +
   xlab("Número") + ylab("densidade") +
-  theme(plot.title = element_text(size=15) )
+  theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
 
