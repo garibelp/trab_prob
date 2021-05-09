@@ -44,7 +44,7 @@ library(summarytools)
 ## **3.2. Carregamento dos dados** {#section-3-2}
 
 ```{r}
-path <- "/home/gpo/Documents/codes/trab_prob"
+path <- "./"
 setwd(path)
 
 Claim.Data <- read_csv2(file = "ClaimData.csv")
