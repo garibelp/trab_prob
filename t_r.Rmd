@@ -1,8 +1,9 @@
 ---
-toc: true
 toc-title: "Sumário"
 output:
-  pdf_document: default
+  pdf_document:
+    toc: true
+    toc_depth: 4
   pandoc_args: --listings
   html_document:
     df_print: paged
@@ -48,7 +49,7 @@ atual. Abaixo de cada tabela há um comentário sobre os dados apresentados na t
 
 \newpage
 
-## 2.2 RESUMO GRÁFICO
+## 2.2 Resumo Gráfico
 
     Muitas vezes tabelas não são adequadas para apresentar determinado conjunto de
 dados e, portanto, recorre-se a outras formas de representação de dados, gráficos por exemplo.
@@ -89,7 +90,7 @@ dispersão, como desvio padrão e variância; por isso, os boxplots os identific
 Num dos eixos indica o valor ou categoria de uma variável aleatória e noutro a frequência da
 variável.\
 
-## 2.3 RESUMO NUMÉRICO
+## 2.3 Resumo Numérico
 
     Além de elementos visuais, resumos numéricos também são úteis para análise de
 dados. **Medidas de tendência central**, ou posição, permitem analisar a posição da
