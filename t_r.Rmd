@@ -7,31 +7,101 @@ output:
   html_document:
     df_print: paged
 ---
-
 \newpage
 
-# 1. INTRODUÇÃO E OBJETIVOS {#section-1}
+# **1. INTRODUÇÃO E OBJETIVOS** {#section-1}
 
-    Análise exploratória de dados antigamente era chamada simplesmente de estatística descritiva. Essa abordagem consiste em apresentar dados de forma organizada para facilitar a interpretação e, por fim, retirar conclusões acerca deles. Os dados a serem analisados são coletados previamente a partir de uma população (indivíduos, objetos ou fenômenos, por exemplo, que possuem características em comum que podem ser observadas e categorizadas); gerando assim uma amostra (conjunto de dados coletados de uma parte da população). Finalmente, os dados são estruturados; expostos em forma de gráficos e tabelas; e analisados para que então conclusões possam ser feitas - ou não, nem sempre amostras são suficientemente completas - acerca da amostra.\
+    Análise exploratória de dados antigamente era chamada simplesmente de estatística descritiva. Essa abordagem consiste em apresentar dados de forma organizada para facilitar a interpretação e, por fim, retirar conclusões acerca deles. Os dados a serem analisados são coletados previamente - por censo ou por amostragem - a partir de uma população (indivíduos, objetos ou fenômenos, por exemplo, que possuem características em comum que podem ser observadas e categorizadas); gerando assim uma amostra (conjunto de dados coletados de uma parte da população) - ou censo (conjunto de dados coletados de toda a população) - . Finalmente, os dados são estruturados; expostos em forma de gráficos e tabelas; e analisados para que então conclusões possam ser feitas - ou não, nem sempre amostras são suficientemente completas - acerca da amostra. A estatística indutiva busca propor hipóteses.\
     O relatório apresenta informações retiradas de uma base de dados previamente coletada, bem como uma interpretação dela. Ela provém de uma grande empresa de seguros alemã, referente às reclamações dos segurados sobre sinistros associados à carteira de seguro automobilístico da empresa germânica. O conjunto de dados em estudo foi fornecido pelo Prof. Dr. Afrânio Vieira.\
-    A análise desse acervo de dados foi feita utilizando a linguagem de programação R, cujo principal objetivo é, justamente, facilitar análises estatísticas, bem como a criação e manipulação de gráficos. Além disso, foi também utilizado o software Rstudio, que pode ser obtido em <https://www.rstudio.com/>. A linguagem R está disponível para download em <https://www.r-project.org/>.\
-    Ao longo do relatório, três métodos de análise serão utilizados: resumo tabular, análise de dados a partir de tabelas; e resumo gráfico, a partir de gráficos.\
-    Uma base de dados pode ser descrita por medidas de tendência central, como moda, média aritmética e mediana; medidas de dispersão, para identificar a variabilidade do conjunto de dados; e medidas de posição.
+    A análise desse acervo de dados foi feita utilizando a linguagem de programação R, cujo principal objetivo é, justamente, facilitar análises estatísticas, bem como a criação e manipulação de gráficos. Além disso, foi também utilizado o software Rstudio, que pode ser obtido em https://www.rstudio.com/. A linguagem R está disponível para download em https://www.r-project.org/.\
+    Ao longo do relatório, três métodos de análise foram utilizados: resumo tabular, análise de dados a partir de tabelas; resumo gráfico, a partir de gráficos; e resumo numérico.\
+    Uma base de dados pode ser descrita por medidas de tendência central, como moda, média aritmética e mediana; medidas de dispersão, para identificar a variabilidade do conjunto de dados; e medidas de posição, que permite uma melhor análise se o conjunto de dados possuir outliers (valores extremos). Essas três maneiras de descrever dados fazem parte do resumo numérico.\
 
 \newpage
 
-# 2. METODOLOGIA DE ANÁLISE {#section-2}
+# **2. METODOLOGIA DE ANÁLISE** {#section-2}
 
-    Nesta seção serão evidenciados e explicados brevemente os métodos de análise utilizados no relatório. Eles são: resumo tabular; resumo gráfico; e resumo numérico. Os métodos de análise
+    Nesta seção serão evidenciados e explicados brevemente os métodos de análise
+utilizados no relatório. Eles são: resumo tabular; resumo gráfico; e resumo numérico. Os
+métodos de análise estatística são empregados a fim de simplificar e otimizar o processo de
+análise de dados.\
 
-## **2.1. Resumo Tabular**
+## 2.1. Resumo Tabular
 
-    Como o pŕoprio nome diz
+    Tabelas são estruturas sistemáticas criadas para sintetizar um conjunto de dados.
+Tabelas podem ser simples (apenas uma variável) ou cruzada (duas os mais variáveis) - em
+certas pesquisas pode ser interessante, além de exibir os dados coletados, mostrar o sexo da
+pessoa, por exemplo.\
+    Uma tabela é composta pelo seu título, corpo e fonte. O título deve ser colocado no
+topo da estrutura informando o assunto; é conveniente que três perguntas sejam respondidas
+ao lê-lo: o que são os dados nela representados? De que lugar eles foram coletados? Quando
+foram coletados? O corpo é composto por linhas e colunas, e é nele que os dados são
+apresentados. Por fim, é na fonte que se apresenta a origem dos dados, de onde eles foram
+retirados.\
+    O resumo tabular consiste em representar dados em uma tabela. As tabelas
+apresentadas no relatório possuem 5 colunas: a primeira informa o intervalo de valores da
+variável aleatória estudada; a segunda, informa a frequência, quantidade de valores dentro do
+intervalo; a terceira informa a frequência acumulada, a soma de todas as frequências acima
+com a frequência da linha atual; a quarta informa a porcentagem; e a quinta apresenta a
+porcentagem acumulada, soma de todas as porcentagens acima com a porcentagem da linha
+atual. Abaixo de cada tabela há um comentário sobre os dados apresentados na tabela.\
+
 \newpage
 
-# 3. ANÁLISE DESCRITIVA {#section-3}
+## 2.2 RESUMO GRÁFICO
 
-## **3.1. Bibliotecas utilizadas** {#section-3-1}
+    Muitas vezes tabelas não são adequadas para apresentar determinado conjunto de
+dados e, portanto, recorre-se a outras formas de representação de dados, gráficos por exemplo.
+Gráficos são figuras que facilitam a visualização e interpretação dos dados. Assim como as
+tabelas, possuem título e fonte. Existem diversas variações de gráficos e a escolha dela
+normalmente está atrelada ao tipo da variável aleatória estudada. Foram utilizados quatro
+tipos de gráficos: histograma, gráfico de densidade por kernel, boxplot e gráfico de barras.\
+
+### **2.2.1 Histograma**
+
+    Histograma é um gráfico composto de barras agrupadas. O eixo das abscissas indica
+os limites do intervalo de uma barra e outra. Já o eixo das coordenadas representa,
+normalmente, a frequência dos valores do intervalo.\
+
+### **2.2.2 Gráfico da função densidade por Kernel**
+
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\
+
+### **2.2.3 Boxplot**
+
+    Boxplot é um gráfico composto por caixas e quartis. É interessante utilizar este tipo de
+gráfico quando se quer observar posição e dispersão dos dados. Nele é possível identificar os
+outliers, onde a maior parte dos dados estão concentrados, a mediana e comparar o tamanho
+das amostras - pela largura de cada caixa. O limite superior do primeiro quartil - e limite
+inferior do segundo quartil - é a base da caixa. O limite superior do segundo quartil - e limite
+inferior do terceiro quartil - é a linha horizontal dentro da caixa, que representa a mediana. O
+limite inferior do primeiro quartil é a reta imaginária paralela e abaixo à base da caixa, com
+coordenada obtida pela subtração do valor da coordenada da base da caixa com 1,5 vezes a
+**distância interquartílica** - distância entre o topo e a base da caixa. Analogamente, o limite
+superior do terceiro quartil é a reta imaginária paralela e acima ao topo da caixa, com
+coordenada obtida pela soma do valor da coordenada do topo da caixa com 1,5 vezes a
+distância interquartílica. Valores extremos dificultam a análise de dados com medidas de
+dispersão, como desvio padrão e variância; por isso, os boxplots os identificam e os isolam.\
+
+### **2.2.4 Gráfico de barras**
+
+    Gráfico de barras é composto por barras (verticais ou horizontais) não agrupadas.
+Num dos eixos indica o valor ou categoria de uma variável aleatória e noutro a frequência da
+variável.\
+
+## 2.3 RESUMO NUMÉRICO
+
+    Além de elementos visuais, resumos numéricos também são úteis para análise de
+dados. **Medidas de tendência central**, ou posição, permitem analisar a posição da
+concentração dos dados; moda, média e mediana são exemplos. **Medidas de dispersão** são
+utilizadas para analisar a variabilidade do conjunto de dados; variância, desvio-padrão e
+coeficiente de variação são exemplos.\
+
+\newpage
+
+# **3. ANÁLISE DESCRITIVA** {#section-3}
+
+## 3.1. Bibliotecas utilizadas {#section-3-1}
 
 ```{r}
 library(tidyverse)
@@ -41,7 +111,7 @@ library(descriptr)
 library(summarytools)
 ```
 
-## **3.2. Carregamento dos dados** {#section-3-2}
+## 3.2. Carregamento dos dados {#section-3-2}
 
 ```{r}
 path <- "./"
@@ -51,7 +121,7 @@ Claim.Data <- read_csv2(file = "ClaimData.csv")
 glimpse(Claim.Data) 
 ```
 
-## **3.3. Definindo as Variáveis Qualitativas** {#section-3-3}
+## 3.3. Definindo as Variáveis Qualitativas {#section-3-3}
 
 ```{r}
 Claim.Data$GENDER <- factor(
@@ -69,7 +139,7 @@ glimpse(Claim.Data)
 
 \newpage
 
-## **3.4. Validação dos dados** {#section-3-4}
+## 3.4. Validação dos dados {#section-3-4}
 
 ```{r}
 anyNA(Claim.Data)
@@ -81,14 +151,14 @@ Claim.Data[is.na(Claim.Data$YOJ),]
 
 \newpage
 
-## **3.5. Avaliação dos dados** {#section-3-5}
+## 3.5. Avaliação dos dados {#section-3-5}
 
-### Variáveis contínuas {#section-3-5-1}
+### **3.5.1 Variáveis contínuas** {#section-3-5-1}
 
-#### *BLUEBOOK* - Valor do Veículo
+#### 3.5.1.1 BLUEBOOK - Valor do Veículo
 
--   **Estatísticas básicas do R**
-
+##### *3.5.1.1.1 Estatísticas básicas do R*
+    
 ```{r}
 mean(Claim.Data$BLUEBOOK)       # media
 median(Claim.Data$BLUEBOOK)     # mediana
@@ -102,14 +172,14 @@ quantile(Claim.Data$BLUEBOOK)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$BLUEBOOK, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
--   **Resumo da biblioteca Hmisc**
-
+##### *3.5.1.1.2 Resumo da biblioteca Hmisc*
+    
 ```{r}
 describe(Claim.Data$BLUEBOOK)
 ```
 
--   **Histograma**
-
+##### *3.5.1.1.3 Histograma*
+    
 ```{r}
 hist(Claim.Data$BLUEBOOK, breaks = "fd",
      col = "lightgreen", border = "grey",
@@ -120,8 +190,8 @@ hist(Claim.Data$BLUEBOOK, breaks = "fd",
 
 \newpage
 
--   **Gráfico de densidade por Kernel**
-
+##### *3.5.1.1.4 Gráfico de densidade por Kernel*
+    
 ```{r}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = BLUEBOOK)) +
   geom_density(mapping = aes(x = BLUEBOOK),  
@@ -135,8 +205,8 @@ graf
 
 \newpage
 
--   **Boxplot**
-
+##### *3.5.1.1.5 Boxplot*
+    
 ```{r}
 boxplot(
   Claim.Data$BLUEBOOK, horizontal = T,
@@ -148,18 +218,18 @@ boxplot(
 
 \newpage
 
--   **Resumo Tabular**
-
+##### *3.5.1.1.6 Resumo Tabular*
+    
 ```{r}
 ds_freq_table(Claim.Data, BLUEBOOK, bins = 20)
 ```
 
 \newpage
 
-#### *RETAINED* - Anos como cliente
+#### 3.5.1.2 RETAINED - Anos como cliente
 
--   **Estatísticas básicas do R**
-
+##### *3.5.1.2.1 Estatísticas básicas do R*
+    
 ```{r}
 mean(Claim.Data$RETAINED)       # media
 median(Claim.Data$RETAINED)     # mediana
@@ -175,14 +245,14 @@ quantile(Claim.Data$RETAINED, type = 7, probs = c(.01, .05, .10, .90, .95, .99))
 
 \newpage
 
--   **Resumo da biblioteca Hmisc**
-
+##### *3.5.1.2.2 Resumo da biblioteca Hmisc*
+    
 ```{r}
 describe(Claim.Data$RETAINED)
 ```
 
--   **Histograma**
-
+##### *3.5.1.2.3 Histograma*
+    
 ```{r}
 hist(Claim.Data$RETAINED, breaks = "fd",
      col = "lightgreen", border = "grey",
@@ -193,8 +263,8 @@ hist(Claim.Data$RETAINED, breaks = "fd",
 
 \newpage
 
--   **Grafico de densidade por Kernel**
-
+##### *3.5.1.2.4 Grafico de densidade por Kernel*
+    
 ```{r}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = RETAINED)) +
   geom_density(mapping = aes(x = RETAINED),  
@@ -208,8 +278,8 @@ graf
 
 \newpage
 
--   **Boxplot**
-
+##### *3.5.1.2.5 Boxplot*
+    
 ```{r}
 boxplot(
   Claim.Data$RETAINED, horizontal = T,
@@ -219,18 +289,18 @@ boxplot(
 )
 ```
 
--   **Resumo Tabular**
-
+##### *3.5.1.2.6 Resumo Tabular*
+    
 ```{r}
 ds_freq_table(Claim.Data, RETAINED, bins = 12)
 ```
 
 \newpage
 
-#### *CLM_AMT* - Valor de cobertura solicitado
+#### 3.5.1.3 CLM_AMT - Valor de cobertura solicitado
 
--   **Estatisticas basicas do R**
-
+##### *3.5.1.3.1 Estatisticas basicas do R*
+    
 ```{r}
 mean(Claim.Data$CLM_AMT)       # media
 median(Claim.Data$CLM_AMT)     # mediana
@@ -244,14 +314,14 @@ quantile(Claim.Data$CLM_AMT)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$CLM_AMT, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
--   **Resumo da biblioteca Hmisc**
-
+##### *3.5.1.3.2 Resumo da biblioteca Hmisc*
+    
 ```{r}
 describe(Claim.Data$CLM_AMT)
 ```
 
--   **Histograma**
-
+##### *3.5.1.3.3 Histograma*
+    
 ```{r}
 hist(Claim.Data$CLM_AMT, breaks = "scott",
      col = "lightgreen", border = "grey",
@@ -262,8 +332,8 @@ hist(Claim.Data$CLM_AMT, breaks = "scott",
 
 \newpage
 
--   **Grafico de densidade por kernel**
-
+##### *3.5.1.3.4 Grafico de densidade por kernel*
+    
 ```{r}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = CLM_AMT)) +
   geom_density(mapping = aes(x = CLM_AMT),  
@@ -277,8 +347,8 @@ graf
 
 \newpage
 
--   **Boxplot**
-
+##### *3.5.1.3.5 Boxplot*
+    
 ```{r}
 boxplot(Claim.Data$CLM_AMT, horizontal = T,
         col = "lightblue", pch = 20,
@@ -288,18 +358,18 @@ boxplot(Claim.Data$CLM_AMT, horizontal = T,
 
 \newpage
 
--   **Resumo Tabular**
-
+##### *3.5.1.3.6 Resumo Tabular*
+    
 ```{r}
 ds_freq_table(Claim.Data, CLM_AMT, bins = 20)
 ```
 
 \newpage
 
-#### *AGE* - Idade em anos
+#### 3.5.1.4 AGE - Idade em anos
 
--   **Estatisticas basicas do R** Adicionado parâmetro *na.rm=TRUE* para ignorar os valores não definidos.
-
+##### *3.5.1.4.1 Estatisticas basicas do R*
+    
 ```{r}
 mean(Claim.Data$AGE, na.rm=TRUE)       # media
 median(Claim.Data$AGE, na.rm=TRUE)     # mediana
@@ -313,16 +383,17 @@ quantile(Claim.Data$AGE, na.rm=TRUE)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$AGE, na.rm=TRUE, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
+    Adicionado parâmetro *na.rm=TRUE* para ignorar os valores não definidos.\
 \newpage
 
--   **Resumo da biblioteca Hmisc**
-
+##### *3.5.1.4.2 Resumo da biblioteca Hmisc*
+    
 ```{r}
 describe(Claim.Data$AGE)
 ```
 
--   **Histograma**
-
+##### *3.5.1.4.3 Histograma*
+    
 ```{r}
 hist(Claim.Data$AGE, breaks = "fd",
      col = "lightgreen", border = "grey",
@@ -333,8 +404,8 @@ hist(Claim.Data$AGE, breaks = "fd",
 
 \newpage
 
--   **Grafico de densidade por kernel**
-
+##### *3.5.1.4.4 Grafico de densidade por kernel*
+    
 ```{r}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = AGE)) +
   geom_density(mapping = aes(x = AGE),  
@@ -348,8 +419,8 @@ graf
 
 \newpage
 
--   **Boxplot**
-
+##### *3.5.1.4.5 Boxplot*
+    
 ```{r}
 boxplot(Claim.Data$AGE, horizontal = T,
         col = "lightblue", pch = 20,
@@ -357,18 +428,18 @@ boxplot(Claim.Data$AGE, horizontal = T,
         xlab = "Anos")
 ```
 
--   **Resumo Tabular**
-
+##### *3.5.1.4.6 Resumo Tabular*
+    
 ```{r}
 ds_freq_table(Claim.Data, AGE, bins = 25)
 ```
 
 \newpage
 
-#### *YOJ* - Anos de trabalho
+#### 3.5.1.5 YOJ - Anos de trabalho
 
--   **Estatisticas basicas do R** Adicionado parâmetro *na.rm=TRUE* para ignorar os valores não definidos.
-
+##### *3.5.1.5.1 Estatisticas basicas do R*
+    
 ```{r}
 mean(Claim.Data$YOJ, na.rm=TRUE)       # media
 median(Claim.Data$YOJ, na.rm=TRUE)     # mediana
@@ -381,17 +452,18 @@ summary(Claim.Data$YOJ, na.rm=TRUE)    # Min, Q1, Q2, media, Q3, Max
 quantile(Claim.Data$YOJ, na.rm=TRUE)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$YOJ, na.rm=TRUE, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
+    Adicionado parâmetro *na.rm=TRUE* para ignorar os valores não definidos.\
 
 \newpage
 
--   **Resumo da biblioteca Hmisc**
-
+##### *3.5.1.5.2 Resumo da biblioteca Hmisc*
+    
 ```{r}
 describe(Claim.Data$YOJ)
 ```
 
--   **Histograma**
-
+##### *3.5.1.5.3 Histograma*
+    
 ```{r}
 hist(Claim.Data$YOJ, breaks = "fd",
      col = "lightgreen", border = "grey",
@@ -402,8 +474,8 @@ hist(Claim.Data$YOJ, breaks = "fd",
 
 \newpage
 
--   **Grafico de densidade por kernel**
-
+##### *3.5.1.5.4 Grafico de densidade por kernel*
+    
 ```{r}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = YOJ)) +
   geom_density(mapping = aes(x = YOJ),  
@@ -417,8 +489,8 @@ graf
 
 \newpage
 
--   **Boxplot**
-
+##### *3.5.1.5.5 Boxplot*
+    
 ```{r}
 boxplot(Claim.Data$YOJ, horizontal = T,
         col = "lightblue", pch = 20,
@@ -428,18 +500,18 @@ boxplot(Claim.Data$YOJ, horizontal = T,
 
 \newpage
 
--   **Resumo Tabular**
-
+##### *3.5.1.5.6 Resumo Tabular*
+    
 ```{r}
 ds_freq_table(Claim.Data, YOJ, bins = 23)
 ```
 
-### Variáveis discretas {#section-3-5-2}
+### **3.5.2 Variáveis discretas**
 
-#### *NPOLICY* - Número de apólices
+#### 3.5.2.1 NPOLICY - Número de apólices
 
--   **Estatisticas basicas do R**
-
+##### *3.5.2.1.1 Estatisticas basicas do R*
+    
 ```{r}
 mean(Claim.Data$NPOLICY)       # media
 median(Claim.Data$NPOLICY)     # mediana
@@ -453,14 +525,14 @@ quantile(Claim.Data$NPOLICY)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$NPOLICY, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
--   **Resumo da biblioteca Hmisc**
-
+##### *3.5.2.1.2 Resumo da biblioteca Hmisc*
+    
 ```{r}
 describe(Claim.Data$NPOLICY)
 ```
 
--   **Histograma**
-
+##### *3.5.2.1.3 Histograma*
+    
 ```{r}
 hist(Claim.Data$NPOLICY, breaks = "scott",
      col = "lightgreen", border = "grey",
@@ -471,8 +543,8 @@ hist(Claim.Data$NPOLICY, breaks = "scott",
 
 \newpage
 
--   **Grafico de densidade por kernel**
-
+##### *3.5.2.1.4 Grafico de densidade por kernel*
+    
 ```{r}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = NPOLICY)) +
   geom_density(mapping = aes(x = NPOLICY),  
@@ -486,8 +558,8 @@ graf
 
 \newpage
 
--   **Boxplot**
-
+##### *3.5.2.1.5 Boxplot*
+    
 ```{r}
 boxplot(Claim.Data$NPOLICY, horizontal = T,
         col = "lightblue", pch = 20,
@@ -497,35 +569,35 @@ boxplot(Claim.Data$NPOLICY, horizontal = T,
 
 \newpage
 
--   **Resumo Tabular**
-
+##### *3.5.2.1.6 Resumo Tabular*
+    
 ```{r}
 ds_freq_table(Claim.Data, NPOLICY, bins = 8)
 ```
 
 \newpage
 
-### Variáveis nominais {#section-3-5-3}
+### **3.5.3 Variáveis nominais**
 
-#### *MAX_EDUC* - Máximo nível educacional
+#### 3.5.3.1 MAX_EDUC - Máximo nível educacional
 
--   **Estatisticas basicas do R** Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.
-
+##### *3.5.3.1.1 Estatisticas basicas do R*
+    
 ```{r}
 median(as.numeric(Claim.Data$MAX_EDUC))             # Nível de educação Mediana
 quantile(as.numeric(Claim.Data$MAX_EDUC), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$MAX_EDUC), type = 2)      # Distancia interquartilica
 ```
 
--   **Resumo tabular**
-
+##### *3.5.3.1.2 Resumo tabular*
+    
 ```{r}
 tabela <- freq(Claim.Data$MAX_EDUC, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
 
--   **Resumo gráfico**
-
+##### *3.5.3.1.3 Resumo gráfico*
+    
 ```{r}
 ggplot(Claim.Data, 
        aes(x = MAX_EDUC )) + 
@@ -540,8 +612,8 @@ ggplot(Claim.Data,
   )
 ```
 
--   **Tabela de frequências**
-
+##### *3.5.3.1.4 Tabela de frequências*
+    
 ```{r}
 dados.freq <- data.frame(
   name = rownames(table(Claim.Data$MAX_EDUC)),  
@@ -550,8 +622,8 @@ dados.freq <- data.frame(
 dados.freq
 ```
 
--   **Barplot**
-
+##### *3.5.3.1.5 Barplot*
+    
 ```{r}
 ggplot(dados.freq, aes(x=name, y=value)) + 
   geom_bar(stat = "identity") +
@@ -568,25 +640,25 @@ ggplot(dados.freq, aes(x=name, y=value)) +
 
 \newpage
 
-#### *GENDER* - Sexo
+#### 3.5.3.2 GENDER - Sexo
 
--   **Estatisticas basicas do R** Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.
-
+##### *3.5.3.2.1 Estatisticas basicas do R*
+    
 ```{r}
 median(as.numeric(Claim.Data$GENDER))             # Nível de educação Mediana
 quantile(as.numeric(Claim.Data$GENDER), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$GENDER), type = 2)      # Distancia interquartilica
 ```
 
--   **Resumo tabular**
-
+##### *3.5.3.2.2 Resumo tabular*
+    
 ```{r}
 tabela <- freq(Claim.Data$GENDER, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
 
--   **Resumo gráfico**
-
+##### *3.5.3.2.3 Resumo gráfico*
+    
 ```{r}
 ggplot(Claim.Data, 
        aes(x = GENDER )) + 
@@ -601,8 +673,8 @@ ggplot(Claim.Data,
   )
 ```
 
--   **Tabela de frequências**
-
+##### *3.5.3.2.4 Tabela de frequências*
+    
 ```{r}
 dados.freq <- data.frame(
   name = rownames(table(Claim.Data$GENDER)),  
@@ -611,8 +683,8 @@ dados.freq <- data.frame(
 dados.freq
 ```
 
--   **Barplot**
-
+##### *3.5.3.2.5 Barplot*
+    
 ```{r}
 ggplot(dados.freq, aes(x=name, y=value)) + 
   geom_bar(stat = "identity") +
@@ -629,9 +701,11 @@ ggplot(dados.freq, aes(x=name, y=value)) +
 
 \newpage
 
-#### *MARRIED* - Casado
+#### 3.5.3.3 MARRIED - Casado
 
--   **Estatisticas basicas do R** Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.
+##### *3.5.3.3.1 Estatisticas basicas do R*
+
+    Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.\
 
 ```{r}
 median(as.numeric(Claim.Data$MARRIED))             # Nível de educação Mediana
@@ -639,15 +713,15 @@ quantile(as.numeric(Claim.Data$MARRIED), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$MARRIED), type = 2)      # Distancia interquartilica
 ```
 
--   **Resumo tabular**
-
+##### *3.5.3.3.2 Resumo tabular*
+    
 ```{r}
 tabela <- freq(Claim.Data$MARRIED, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
 
--   **Resumo gráfico**
-
+##### *3.5.3.3.3 Resumo gráfico*
+    
 ```{r}
 ggplot(Claim.Data, 
        aes(x = MARRIED )) + 
@@ -662,8 +736,8 @@ ggplot(Claim.Data,
   )
 ```
 
--   **Tabela de frequências**
-
+##### *3.5.3.3.4 Tabela de frequências*
+    
 ```{r}
 dados.freq <- data.frame(
   name = rownames(table(Claim.Data$MARRIED)),  
@@ -672,8 +746,8 @@ dados.freq <- data.frame(
 dados.freq
 ```
 
--   **Barplot**
-
+##### *3.5.3.3.5 Barplot*
+    
 ```{r}
 ggplot(dados.freq, aes(x=name, y=value)) + 
   geom_bar(stat = "identity") +
@@ -705,4 +779,3 @@ JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Us
 Yihui Xie and J.J. Allaire and Garrett Grolemund (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
 
 Yihui Xie and Christophe Dervieux and Emily Riederer (2020). R Markdown Cookbook. Chapman and Hall/CRC. ISBN 9780367563837. URL https://bookdown.org/yihui/rmarkdown-cookbook.
-
