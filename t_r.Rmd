@@ -104,7 +104,7 @@ coeficiente de variação são exemplos.\
 
 ## 3.1. Bibliotecas utilizadas {#section-3-1}
 
-```{r}
+```{r fig.align="center"}
 library(tidyverse)
 library(Hmisc)
 library(psych)
@@ -114,7 +114,7 @@ library(summarytools)
 
 ## 3.2. Carregamento dos dados {#section-3-2}
 
-```{r}
+```{r fig.align="center"}
 path <- "./"
 setwd(path)
 
@@ -124,7 +124,7 @@ glimpse(Claim.Data)
 
 ## 3.3. Definindo as Variáveis Qualitativas {#section-3-3}
 
-```{r}
+```{r fig.align="center"}
 Claim.Data$GENDER <- factor(
   Claim.Data$GENDER,
   levels = c("M", "F"),
@@ -142,7 +142,7 @@ glimpse(Claim.Data)
 
 ## 3.4. Validação dos dados {#section-3-4}
 
-```{r}
+```{r fig.align="center"}
 anyNA(Claim.Data)
 Claim.Data %>% is.na() %>% sum()
 Claim.Data %>% is.na() %>% unique()
@@ -160,7 +160,7 @@ Claim.Data[is.na(Claim.Data$YOJ),]
 
 ##### *3.5.1.1.1 Estatísticas básicas do R*
     
-```{r}
+```{r fig.align="center"}
 mean(Claim.Data$BLUEBOOK)       # media
 median(Claim.Data$BLUEBOOK)     # mediana
 min(Claim.Data$BLUEBOOK)        # minimo
@@ -175,13 +175,13 @@ quantile(Claim.Data$BLUEBOOK, type = 7, probs = c(.01, .05, .10, .90, .95, .99))
 
 ##### *3.5.1.1.2 Resumo da biblioteca Hmisc*
     
-```{r}
+```{r fig.align="center"}
 describe(Claim.Data$BLUEBOOK)
 ```
 
 ##### *3.5.1.1.3 Histograma*
     
-```{r}
+```{r fig.align="center"}
 hist(Claim.Data$BLUEBOOK, breaks = "fd",
      col = "lightgreen", border = "grey",
      main = "Histograma: Preço Tabelado do Automovel",
@@ -193,7 +193,7 @@ hist(Claim.Data$BLUEBOOK, breaks = "fd",
 
 ##### *3.5.1.1.4 Gráfico de densidade por Kernel*
     
-```{r}
+```{r fig.align="center"}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = BLUEBOOK)) +
   geom_density(mapping = aes(x = BLUEBOOK),  
                bw = "nrd",
@@ -208,7 +208,7 @@ graf
 
 ##### *3.5.1.1.5 Boxplot*
     
-```{r}
+```{r fig.align="center"}
 boxplot(
   Claim.Data$BLUEBOOK, horizontal = T,
   col = "lightblue", pch = 20,
@@ -221,7 +221,7 @@ boxplot(
 
 ##### *3.5.1.1.6 Resumo Tabular*
     
-```{r}
+```{r fig.align="center"}
 ds_freq_table(Claim.Data, BLUEBOOK, bins = 20)
 ```
 
@@ -231,7 +231,7 @@ ds_freq_table(Claim.Data, BLUEBOOK, bins = 20)
 
 ##### *3.5.1.2.1 Estatísticas básicas do R*
     
-```{r}
+```{r fig.align="center"}
 mean(Claim.Data$RETAINED)       # media
 median(Claim.Data$RETAINED)     # mediana
 min(Claim.Data$RETAINED)        # minimo
@@ -248,13 +248,13 @@ quantile(Claim.Data$RETAINED, type = 7, probs = c(.01, .05, .10, .90, .95, .99))
 
 ##### *3.5.1.2.2 Resumo da biblioteca Hmisc*
     
-```{r}
+```{r fig.align="center"}
 describe(Claim.Data$RETAINED)
 ```
 
 ##### *3.5.1.2.3 Histograma*
     
-```{r}
+```{r fig.align="center"}
 hist(Claim.Data$RETAINED, breaks = "fd",
      col = "lightgreen", border = "grey",
      main = "Histograma: Anos como cliente",
@@ -266,7 +266,7 @@ hist(Claim.Data$RETAINED, breaks = "fd",
 
 ##### *3.5.1.2.4 Grafico de densidade por Kernel*
     
-```{r}
+```{r fig.align="center"}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = RETAINED)) +
   geom_density(mapping = aes(x = RETAINED),  
                bw = "nrd",
@@ -281,7 +281,7 @@ graf
 
 ##### *3.5.1.2.5 Boxplot*
     
-```{r}
+```{r fig.align="center"}
 boxplot(
   Claim.Data$RETAINED, horizontal = T,
   col = "lightblue", pch = 20,
@@ -292,7 +292,7 @@ boxplot(
 
 ##### *3.5.1.2.6 Resumo Tabular*
     
-```{r}
+```{r fig.align="center"}
 ds_freq_table(Claim.Data, RETAINED, bins = 12)
 ```
 
@@ -302,7 +302,7 @@ ds_freq_table(Claim.Data, RETAINED, bins = 12)
 
 ##### *3.5.1.3.1 Estatisticas basicas do R*
     
-```{r}
+```{r fig.align="center"}
 mean(Claim.Data$CLM_AMT)       # media
 median(Claim.Data$CLM_AMT)     # mediana
 min(Claim.Data$CLM_AMT)        # minimo
@@ -317,13 +317,13 @@ quantile(Claim.Data$CLM_AMT, type = 7, probs = c(.01, .05, .10, .90, .95, .99)) 
 
 ##### *3.5.1.3.2 Resumo da biblioteca Hmisc*
     
-```{r}
+```{r fig.align="center"}
 describe(Claim.Data$CLM_AMT)
 ```
 
 ##### *3.5.1.3.3 Histograma*
     
-```{r}
+```{r fig.align="center"}
 hist(Claim.Data$CLM_AMT, breaks = "scott",
      col = "lightgreen", border = "grey",
      main = "Histograma: Valor de cobertura solicitado",
@@ -335,7 +335,7 @@ hist(Claim.Data$CLM_AMT, breaks = "scott",
 
 ##### *3.5.1.3.4 Grafico de densidade por kernel*
     
-```{r}
+```{r fig.align="center"}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = CLM_AMT)) +
   geom_density(mapping = aes(x = CLM_AMT),  
                bw = "nrd",
@@ -350,7 +350,7 @@ graf
 
 ##### *3.5.1.3.5 Boxplot*
     
-```{r}
+```{r fig.align="center"}
 boxplot(Claim.Data$CLM_AMT, horizontal = T,
         col = "lightblue", pch = 20,
         main = "Boxplot: Valor de cobertura solicitado",
@@ -361,7 +361,7 @@ boxplot(Claim.Data$CLM_AMT, horizontal = T,
 
 ##### *3.5.1.3.6 Resumo Tabular*
     
-```{r}
+```{r fig.align="center"}
 ds_freq_table(Claim.Data, CLM_AMT, bins = 20)
 ```
 
@@ -371,7 +371,7 @@ ds_freq_table(Claim.Data, CLM_AMT, bins = 20)
 
 ##### *3.5.1.4.1 Estatisticas basicas do R*
     
-```{r}
+```{r fig.align="center"}
 mean(Claim.Data$AGE, na.rm=TRUE)       # media
 median(Claim.Data$AGE, na.rm=TRUE)     # mediana
 min(Claim.Data$AGE, na.rm=TRUE)        # minimo
@@ -389,13 +389,13 @@ quantile(Claim.Data$AGE, na.rm=TRUE, type = 7, probs = c(.01, .05, .10, .90, .95
 
 ##### *3.5.1.4.2 Resumo da biblioteca Hmisc*
     
-```{r}
+```{r fig.align="center"}
 describe(Claim.Data$AGE)
 ```
 
 ##### *3.5.1.4.3 Histograma*
     
-```{r}
+```{r fig.align="center"}
 hist(Claim.Data$AGE, breaks = "fd",
      col = "lightgreen", border = "grey",
      main = "Histograma: Idade em anos",
@@ -407,7 +407,7 @@ hist(Claim.Data$AGE, breaks = "fd",
 
 ##### *3.5.1.4.4 Grafico de densidade por kernel*
     
-```{r}
+```{r fig.align="center"}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = AGE)) +
   geom_density(mapping = aes(x = AGE),  
                bw = "nrd",
@@ -422,7 +422,7 @@ graf
 
 ##### *3.5.1.4.5 Boxplot*
     
-```{r}
+```{r fig.align="center"}
 boxplot(Claim.Data$AGE, horizontal = T,
         col = "lightblue", pch = 20,
         main = "Boxplot: Idade em anos",
@@ -431,7 +431,7 @@ boxplot(Claim.Data$AGE, horizontal = T,
 
 ##### *3.5.1.4.6 Resumo Tabular*
     
-```{r}
+```{r fig.align="center"}
 ds_freq_table(Claim.Data, AGE, bins = 25)
 ```
 
@@ -441,7 +441,7 @@ ds_freq_table(Claim.Data, AGE, bins = 25)
 
 ##### *3.5.1.5.1 Estatisticas basicas do R*
     
-```{r}
+```{r fig.align="center"}
 mean(Claim.Data$YOJ, na.rm=TRUE)       # media
 median(Claim.Data$YOJ, na.rm=TRUE)     # mediana
 min(Claim.Data$YOJ, na.rm=TRUE)        # minimo
@@ -459,13 +459,13 @@ quantile(Claim.Data$YOJ, na.rm=TRUE, type = 7, probs = c(.01, .05, .10, .90, .95
 
 ##### *3.5.1.5.2 Resumo da biblioteca Hmisc*
     
-```{r}
+```{r fig.align="center"}
 describe(Claim.Data$YOJ)
 ```
 
 ##### *3.5.1.5.3 Histograma*
     
-```{r}
+```{r fig.align="center"}
 hist(Claim.Data$YOJ, breaks = "fd",
      col = "lightgreen", border = "grey",
      main = "Histograma: Idade em anos",
@@ -477,7 +477,7 @@ hist(Claim.Data$YOJ, breaks = "fd",
 
 ##### *3.5.1.5.4 Grafico de densidade por kernel*
     
-```{r}
+```{r fig.align="center"}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = YOJ)) +
   geom_density(mapping = aes(x = YOJ),  
                bw = "nrd",
@@ -492,7 +492,7 @@ graf
 
 ##### *3.5.1.5.5 Boxplot*
     
-```{r}
+```{r fig.align="center"}
 boxplot(Claim.Data$YOJ, horizontal = T,
         col = "lightblue", pch = 20,
         main = "Boxplot: Anos de trabalho",
@@ -503,7 +503,7 @@ boxplot(Claim.Data$YOJ, horizontal = T,
 
 ##### *3.5.1.5.6 Resumo Tabular*
     
-```{r}
+```{r fig.align="center"}
 ds_freq_table(Claim.Data, YOJ, bins = 23)
 ```
 
@@ -513,7 +513,7 @@ ds_freq_table(Claim.Data, YOJ, bins = 23)
 
 ##### *3.5.2.1.1 Estatisticas basicas do R*
     
-```{r}
+```{r fig.align="center"}
 mean(Claim.Data$NPOLICY)       # media
 median(Claim.Data$NPOLICY)     # mediana
 min(Claim.Data$NPOLICY)        # minimo
@@ -528,13 +528,13 @@ quantile(Claim.Data$NPOLICY, type = 7, probs = c(.01, .05, .10, .90, .95, .99)) 
 
 ##### *3.5.2.1.2 Resumo da biblioteca Hmisc*
     
-```{r}
+```{r fig.align="center"}
 describe(Claim.Data$NPOLICY)
 ```
 
 ##### *3.5.2.1.3 Histograma*
     
-```{r}
+```{r fig.align="center"}
 hist(Claim.Data$NPOLICY, breaks = "scott",
      col = "lightgreen", border = "grey",
      main = "Histograma: Número de apólices",
@@ -546,7 +546,7 @@ hist(Claim.Data$NPOLICY, breaks = "scott",
 
 ##### *3.5.2.1.4 Grafico de densidade por kernel*
     
-```{r}
+```{r fig.align="center"}
 graf <- ggplot(data = Claim.Data, mapping = aes(x = NPOLICY)) +
   geom_density(mapping = aes(x = NPOLICY),  
                bw = "nrd",
@@ -561,7 +561,7 @@ graf
 
 ##### *3.5.2.1.5 Boxplot*
     
-```{r}
+```{r fig.align="center"}
 boxplot(Claim.Data$NPOLICY, horizontal = T,
         col = "lightblue", pch = 20,
         main = "Boxplot: Número de apólices",
@@ -572,7 +572,7 @@ boxplot(Claim.Data$NPOLICY, horizontal = T,
 
 ##### *3.5.2.1.6 Resumo Tabular*
     
-```{r}
+```{r fig.align="center"}
 ds_freq_table(Claim.Data, NPOLICY, bins = 8)
 ```
 
@@ -584,7 +584,7 @@ ds_freq_table(Claim.Data, NPOLICY, bins = 8)
 
 ##### *3.5.3.1.1 Estatisticas basicas do R*
     
-```{r}
+```{r fig.align="center"}
 median(as.numeric(Claim.Data$MAX_EDUC))             # Nível de educação Mediana
 quantile(as.numeric(Claim.Data$MAX_EDUC), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$MAX_EDUC), type = 2)      # Distancia interquartilica
@@ -592,14 +592,14 @@ IQR(as.numeric(Claim.Data$MAX_EDUC), type = 2)      # Distancia interquartilica
 
 ##### *3.5.3.1.2 Resumo tabular*
     
-```{r}
+```{r fig.align="center"}
 tabela <- freq(Claim.Data$MAX_EDUC, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
 
 ##### *3.5.3.1.3 Resumo gráfico*
     
-```{r}
+```{r fig.align="center"}
 ggplot(Claim.Data, 
        aes(x = MAX_EDUC )) + 
   geom_bar(color = "grey", fill = "lightgreen") +
@@ -615,7 +615,7 @@ ggplot(Claim.Data,
 
 ##### *3.5.3.1.4 Tabela de frequências*
     
-```{r}
+```{r fig.align="center"}
 dados.freq <- data.frame(
   name = rownames(table(Claim.Data$MAX_EDUC)),  
   value = as.vector(table(Claim.Data$MAX_EDUC))
@@ -625,7 +625,7 @@ dados.freq
 
 ##### *3.5.3.1.5 Barplot*
     
-```{r}
+```{r fig.align="center"}
 ggplot(dados.freq, aes(x=name, y=value)) + 
   geom_bar(stat = "identity") +
   ggtitle("Nível de Escolaridade") +
@@ -645,7 +645,7 @@ ggplot(dados.freq, aes(x=name, y=value)) +
 
 ##### *3.5.3.2.1 Estatisticas basicas do R*
     
-```{r}
+```{r fig.align="center"}
 median(as.numeric(Claim.Data$GENDER))             # Nível de educação Mediana
 quantile(as.numeric(Claim.Data$GENDER), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$GENDER), type = 2)      # Distancia interquartilica
@@ -653,14 +653,14 @@ IQR(as.numeric(Claim.Data$GENDER), type = 2)      # Distancia interquartilica
 
 ##### *3.5.3.2.2 Resumo tabular*
     
-```{r}
+```{r fig.align="center"}
 tabela <- freq(Claim.Data$GENDER, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
 
 ##### *3.5.3.2.3 Resumo gráfico*
     
-```{r}
+```{r fig.align="center"}
 ggplot(Claim.Data, 
        aes(x = GENDER )) + 
   geom_bar(color = "grey", fill = "lightgreen") +
@@ -676,7 +676,7 @@ ggplot(Claim.Data,
 
 ##### *3.5.3.2.4 Tabela de frequências*
     
-```{r}
+```{r fig.align="center"}
 dados.freq <- data.frame(
   name = rownames(table(Claim.Data$GENDER)),  
   value = as.vector(table(Claim.Data$GENDER))
@@ -686,7 +686,7 @@ dados.freq
 
 ##### *3.5.3.2.5 Barplot*
     
-```{r}
+```{r fig.align="center"}
 ggplot(dados.freq, aes(x=name, y=value)) + 
   geom_bar(stat = "identity") +
   ggtitle("Gênero") +
@@ -708,7 +708,7 @@ ggplot(dados.freq, aes(x=name, y=value)) +
 
     Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.\
 
-```{r}
+```{r fig.align="center"}
 median(as.numeric(Claim.Data$MARRIED))             # Nível de educação Mediana
 quantile(as.numeric(Claim.Data$MARRIED), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$MARRIED), type = 2)      # Distancia interquartilica
@@ -716,14 +716,14 @@ IQR(as.numeric(Claim.Data$MARRIED), type = 2)      # Distancia interquartilica
 
 ##### *3.5.3.3.2 Resumo tabular*
     
-```{r}
+```{r fig.align="center"}
 tabela <- freq(Claim.Data$MARRIED, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
 
 ##### *3.5.3.3.3 Resumo gráfico*
     
-```{r}
+```{r fig.align="center"}
 ggplot(Claim.Data, 
        aes(x = MARRIED )) + 
   geom_bar(color = "grey", fill = "lightgreen") +
@@ -739,7 +739,7 @@ ggplot(Claim.Data,
 
 ##### *3.5.3.3.4 Tabela de frequências*
     
-```{r}
+```{r fig.align="center"}
 dados.freq <- data.frame(
   name = rownames(table(Claim.Data$MARRIED)),  
   value = as.vector(table(Claim.Data$MARRIED))
@@ -749,7 +749,7 @@ dados.freq
 
 ##### *3.5.3.3.5 Barplot*
     
-```{r}
+```{r fig.align="center"}
 ggplot(dados.freq, aes(x=name, y=value)) + 
   geom_bar(stat = "identity") +
   ggtitle("Casado(a)") +
