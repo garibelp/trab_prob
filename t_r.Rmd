@@ -3,10 +3,13 @@ toc-title: "SUMÁRIO"
 output:
   pdf_document:
     toc: true
-    toc_depth: 4
+    toc_depth: 5
   pandoc_args: --listings
   html_document:
     df_print: paged
+geometry: "left=3cm, top=3cm, right=2cm, bottom=2cm"
+fontsize: 12pt
+linestretch: 1.5
 ---
 \newpage
 
@@ -170,14 +173,18 @@ sd(Claim.Data$BLUEBOOK)         # desvio padrao
 IQR(Claim.Data$BLUEBOOK)        # distancia interquartilica
 summary(Claim.Data$BLUEBOOK)    # Min, Q1, Q2, media, Q3, Max
 quantile(Claim.Data$BLUEBOOK)   # Min, Q1, Q2, Q3, Max
-quantile(Claim.Data$BLUEBOOK, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
+quantile(Claim.Data$BLUEBOOK, type = 7, probs = c(.01, .05, .10, .90, .95, .99))        # percentis
 ```
+
+    O custo médio dos carros segurados pela empresa alemã é 14.400,00 euros.\
 
 ##### *3.5.1.1.2. Resumo da biblioteca Hmisc*
     
 ```{r fig.align="center"}
 describe(Claim.Data$BLUEBOOK)
 ```
+
+\newpage
 
 ##### *3.5.1.1.3. Histograma*
     
@@ -188,7 +195,7 @@ hist(Claim.Data$BLUEBOOK, breaks = "fd",
      xlab = "Preco (USD)", ylab = "Frequencia Absoluta"
 )
 ```
-
+    Há uma maior quantidade de reclamações de segurados com carros avaliados abaixo de 20.000,00 euros.
 \newpage
 
 ##### *3.5.1.1.4. Gráfico de densidade por Kernel*
@@ -203,7 +210,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = BLUEBOOK)) +
   theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
-
+    O gráfico da função densidade do preço tabelado é assimétrica com concentração à esquerda.
 \newpage
 
 ##### *3.5.1.1.5. Boxplot*
@@ -216,7 +223,7 @@ boxplot(
   xlab = "Preco (USD)"
 )
 ```
-
+    A maior concentração de reclamações é dos segurados que possuem carros entre 10.000,00 e 20.000,00 euros.
 \newpage
 
 ##### *3.5.1.1.6. Resumo Tabular*
@@ -224,7 +231,7 @@ boxplot(
 ```{r fig.align="center"}
 ds_freq_table(Claim.Data, BLUEBOOK, bins = 20)
 ```
-
+    Mais de 90% das reclamações são de segurados com carros com valor tabelado abaixo de 29.000,00 euros.
 \newpage
 
 #### 3.5.1.2. RETAINED - Anos como cliente
@@ -243,8 +250,7 @@ summary(Claim.Data$RETAINED)    # Min, Q1, Q2, media, Q3, Max
 quantile(Claim.Data$RETAINED)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$RETAINED, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
-
-\newpage
+    Os clientes contrataram serviços da seguradora, em média, há 5 anos.\
 
 ##### *3.5.1.2.2. Resumo da biblioteca Hmisc*
     
@@ -261,7 +267,7 @@ hist(Claim.Data$RETAINED, breaks = "fd",
      xlab = "Anos", ylab = "Frequencia Absoluta"
 )
 ```
-
+    Poucas pessoas são clientes há mais de 15 anos.\
 \newpage
 
 ##### *3.5.1.2.4. Grafico de densidade por Kernel*
@@ -276,7 +282,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = RETAINED)) +
   theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
-
+    Muitas pessoas contrataram o serviço da empresa alemã recentemente.\
 \newpage
 
 ##### *3.5.1.2.5. Boxplot*
@@ -289,13 +295,15 @@ boxplot(
   xlab = "Anos"
 )
 ```
+    A maioria das pessoas possui menos de 10 anos como cliente.\
+\newpage
 
 ##### *3.5.1.2.6. Resumo Tabular*
     
 ```{r fig.align="center"}
 ds_freq_table(Claim.Data, RETAINED, bins = 12)
 ```
-
+    Quase 60% das pessoas têm menos de 5 anos como cliente.\
 \newpage
 
 #### 3.5.1.3. CLM_AMT - Valor de cobertura solicitado
@@ -315,11 +323,14 @@ quantile(Claim.Data$CLM_AMT)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$CLM_AMT, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
+    O valor de cobertura do seguro é, em média, 1.511,12 euros.\
 ##### *3.5.1.3.2. Resumo da biblioteca Hmisc*
     
 ```{r fig.align="center"}
 describe(Claim.Data$CLM_AMT)
 ```
+
+\newpage
 
 ##### *3.5.1.3.3. Histograma*
     
@@ -330,7 +341,7 @@ hist(Claim.Data$CLM_AMT, breaks = "scott",
      xlab = "Valor(USD)", ylab = "Frequencia Absoluta",
 )
 ```
-
+    A imensa maioria dos seguros cobrem até 20.000,00 euros.
 \newpage
 
 ##### *3.5.1.3.4. Grafico de densidade por kernel*
@@ -364,7 +375,7 @@ boxplot(Claim.Data$CLM_AMT, horizontal = T,
 ```{r fig.align="center"}
 ds_freq_table(Claim.Data, CLM_AMT, bins = 20)
 ```
-
+    Quase 95% dos seguros cobrem até 6.162,40 euros.
 \newpage
 
 #### 3.5.1.4. AGE - Idade em anos
@@ -381,10 +392,11 @@ sd(Claim.Data$AGE, na.rm=TRUE)         # desvio padrao
 IQR(Claim.Data$AGE, na.rm=TRUE)        # distancia interquartilica
 summary(Claim.Data$AGE, na.rm=TRUE)    # Min, Q1, Q2, media, Q3, Max
 quantile(Claim.Data$AGE, na.rm=TRUE)   # Min, Q1, Q2, Q3, Max
-quantile(Claim.Data$AGE, na.rm=TRUE, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
+quantile(Claim.Data$AGE, na.rm=TRUE, type=7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
     Adicionado parâmetro *na.rm=TRUE* para ignorar os valores não definidos.\
+    A média de idade dos clientes é de quase 45 anos.\
 \newpage
 
 ##### *3.5.1.4.2. Resumo da biblioteca Hmisc*
@@ -402,7 +414,7 @@ hist(Claim.Data$AGE, breaks = "fd",
      xlab = "Anos", ylab = "Frequencia Absoluta"
 )
 ```
-
+    Grande parte dos clientes possuem entre 35 e 55 anos.\
 \newpage
 
 ##### *3.5.1.4.4. Grafico de densidade por kernel*
@@ -417,7 +429,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = AGE)) +
   theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
-
+    Função de densidade quase simétrica.\
 \newpage
 
 ##### *3.5.1.4.5. Boxplot*
@@ -428,13 +440,15 @@ boxplot(Claim.Data$AGE, horizontal = T,
         main = "Boxplot: Idade em anos",
         xlab = "Anos")
 ```
+    Há uma concentração de clientes entre 40 e 50 anos.\
+\newpage
 
 ##### *3.5.1.4.6. Resumo Tabular*
     
 ```{r fig.align="center"}
 ds_freq_table(Claim.Data, AGE, bins = 25)
 ```
-
+    Apenas 11,65% dos clientes têm menos de 34 anos.\
 \newpage
 
 #### 3.5.1.5. YOJ - Anos de trabalho
@@ -454,6 +468,7 @@ quantile(Claim.Data$YOJ, na.rm=TRUE)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$YOJ, na.rm=TRUE, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
     Adicionado parâmetro *na.rm=TRUE* para ignorar os valores não definidos.\
+    Os clientes têm, em média, 10 anos de trabalho.
 
 \newpage
 
@@ -487,7 +502,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = YOJ)) +
   theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
-
+    Função de densidade quase assimétrica a partir de 2,5 anos de trabalho.
 \newpage
 
 ##### *3.5.1.5.5. Boxplot*
@@ -498,7 +513,7 @@ boxplot(Claim.Data$YOJ, horizontal = T,
         main = "Boxplot: Anos de trabalho",
         xlab = "Anos")
 ```
-
+    Maior parte dos clientes têm entre 8 e 13 anos de trabalho.\
 \newpage
 
 ##### *3.5.1.5.6. Resumo Tabular*
@@ -506,6 +521,8 @@ boxplot(Claim.Data$YOJ, horizontal = T,
 ```{r fig.align="center"}
 ds_freq_table(Claim.Data, YOJ, bins = 23)
 ```
+
+\newpage
 
 ### **3.5.2. Variáveis discretas**
 
@@ -526,11 +543,15 @@ quantile(Claim.Data$NPOLICY)   # Min, Q1, Q2, Q3, Max
 quantile(Claim.Data$NPOLICY, type = 7, probs = c(.01, .05, .10, .90, .95, .99))   # percentis
 ```
 
+    Existem clientes com 9 apólices.\
+    
 ##### *3.5.2.1.2. Resumo da biblioteca Hmisc*
     
 ```{r fig.align="center"}
 describe(Claim.Data$NPOLICY)
 ```
+
+\newpage
 
 ##### *3.5.2.1.3. Histograma*
     
@@ -541,7 +562,7 @@ hist(Claim.Data$NPOLICY, breaks = "scott",
      xlab = "Número", ylab = "Frequencia Absoluta",
 )
 ```
-
+    Maior parte dos clientes possui 1 ou 2 apólices.
 \newpage
 
 ##### *3.5.2.1.4. Grafico de densidade por kernel*
@@ -556,7 +577,7 @@ graf <- ggplot(data = Claim.Data, mapping = aes(x = NPOLICY)) +
   theme(plot.title = element_text(hjust = 0.5, size=15) )
 graf
 ```
-
+    Variabilidade do número de apólices é grande.
 \newpage
 
 ##### *3.5.2.1.5. Boxplot*
@@ -567,7 +588,7 @@ boxplot(Claim.Data$NPOLICY, horizontal = T,
         main = "Boxplot: Número de apólices",
         xlab = "Número")
 ```
-
+    Grande maioria dos clientes possui 2 ou menos apólices.
 \newpage
 
 ##### *3.5.2.1.6. Resumo Tabular*
@@ -590,12 +611,18 @@ quantile(as.numeric(Claim.Data$MAX_EDUC), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$MAX_EDUC), type = 2)      # Distancia interquartilica
 ```
 
+\newpage
+
 ##### *3.5.3.1.2. Resumo tabular*
     
 ```{r fig.align="center"}
 tabela <- freq(Claim.Data$MAX_EDUC, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
+
+    Quase 15% dos clientes não concluíram o ensino médio.\
+
+\newpage
 
 ##### *3.5.3.1.3. Resumo gráfico*
     
@@ -612,6 +639,8 @@ ggplot(Claim.Data,
         axis.text = element_text(size = 10)
   )
 ```
+    Maior parte dos clientes possui ensino médio ou bacharel completo\
+\newpage
 
 ##### *3.5.3.1.4. Tabela de frequências*
     
@@ -622,6 +651,8 @@ dados.freq <- data.frame(
 )
 dados.freq
 ```
+
+\newpage
 
 ##### *3.5.3.1.5. Barplot*
     
@@ -646,7 +677,7 @@ ggplot(dados.freq, aes(x=name, y=value)) +
 ##### *3.5.3.2.1. Estatisticas basicas do R*
     
 ```{r fig.align="center"}
-median(as.numeric(Claim.Data$GENDER))             # Nível de educação Mediana
+median(as.numeric(Claim.Data$GENDER))             # Sexo mediana
 quantile(as.numeric(Claim.Data$GENDER), type = 2) # Quartis
 IQR(as.numeric(Claim.Data$GENDER), type = 2)      # Distancia interquartilica
 ```
@@ -657,6 +688,8 @@ IQR(as.numeric(Claim.Data$GENDER), type = 2)      # Distancia interquartilica
 tabela <- freq(Claim.Data$GENDER, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
+    Aproximadamente, 46% dos clintes são homens.\
+\newpage
 
 ##### *3.5.3.2.3. Resumo gráfico*
     
@@ -673,6 +706,8 @@ ggplot(Claim.Data,
         axis.text = element_text(size = 10)
   )
 ```
+    Mulheres contratam serviços da empresa mais do que os homens.\
+\newpage
 
 ##### *3.5.3.2.4. Tabela de frequências*
     
@@ -683,6 +718,8 @@ dados.freq <- data.frame(
 )
 dados.freq
 ```
+
+\newpage
 
 ##### *3.5.3.2.5. Barplot*
     
@@ -704,9 +741,9 @@ ggplot(dados.freq, aes(x=name, y=value)) +
 
 #### 3.5.3.3. MARRIED - Casado
 
-##### *3.5.3.3.1. Estatisticas basicas do R*
+##### *3.5.3.3.1. Estatisticas basicas do R*\
 
-    Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.\
+    Como esta variável é pelo menos ordinal, pode-se calcular as estatísticas de ordem e, portanto, calcular mediana, IQR e quantis.
 
 ```{r fig.align="center"}
 median(as.numeric(Claim.Data$MARRIED))             # Nível de educação Mediana
@@ -720,6 +757,8 @@ IQR(as.numeric(Claim.Data$MARRIED), type = 2)      # Distancia interquartilica
 tabela <- freq(Claim.Data$MARRIED, cum = TRUE, total = TRUE, valid = FALSE)
 tabela
 ```
+    40% dos clientes não são casados.\
+\newpage
 
 ##### *3.5.3.3.3. Resumo gráfico*
     
@@ -736,6 +775,8 @@ ggplot(Claim.Data,
         axis.text = element_text(size = 10)
   )
 ```
+    Maioria dos clientes são casados.\
+\newpage
 
 ##### *3.5.3.3.4. Tabela de frequências*
     
@@ -746,6 +787,8 @@ dados.freq <- data.frame(
 )
 dados.freq
 ```
+
+\newpage
 
 ##### *3.5.3.3.5. Barplot*
     
